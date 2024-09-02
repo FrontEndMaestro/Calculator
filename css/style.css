@@ -1,15 +1,22 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
 .calculator {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 250px auto auto auto;
-    padding: 10px;
     width: 400px;
     background-color: black;
     border: 2px solid white;
     border-radius: 20px;
 }
+
+
 
 .display {
     display: flex;
@@ -26,7 +33,7 @@
     display: flex;
     justify-content: end;
     background-color: black;
-   
+ color: white;  
 }
 
 .input {
@@ -42,11 +49,8 @@
     min-height: 38px;
 }
 
-.buttons {
-    display: flex;
-    width: 400px;
-    flex-direction: column;
-}
+
+
 
 .button-grid {
     display: flex;
@@ -67,7 +71,11 @@
     background-color: #E5E4E2;
 }
 
-.operator {
+.button:hover{
+    background-color: hsl(0,0%,60%);
+}
+
+.operator,#clear,#point,#slash {
     padding: 20px;
     border-radius: 50px;
     width: 70px;
@@ -82,3 +90,11 @@
     border-radius: 50px;
     background-color: orange;
 }
+
+.operator:hover,
+.equals:hover,#clear.button:hover,
+#point.button:hover,
+#slash.operator:hover{
+    background-color: hsl(28, 83%, 52%)!important;
+}
+

@@ -56,16 +56,6 @@ const point=document.querySelector("#point");
 let operatorPressed = false;
 let result;
 
-numbers.forEach(button=>{
-    button.addEventListener("mouseenter",()=>{
-        button.setAttribute("style","background:#B0B0B0");
-    })  
-})
-numbers.forEach(button=>{
-    button.addEventListener("mouseleave",()=>{
-        button.setAttribute("style","background:#E5E4E2");
-    })  
-})
 
 function calculation(){
     result=operate(firstNum, operator, secondNum);
@@ -79,6 +69,7 @@ equalsButton.addEventListener("click", calculation);
 
 numbers.forEach(btn => {
     btn.addEventListener('click', () => {
+        try{
         input.textContent += btn.textContent;
         if (operatorPressed == true ) {
             if(btn.textContent=="."){
@@ -92,7 +83,12 @@ numbers.forEach(btn => {
             }
             firstNum+=btn.textContent;
         }
-    })
+    }catch(error){
+        input.textContent="Error";
+    }
+}
+
+)
 })
 
 
@@ -104,13 +100,14 @@ operatorButtons.forEach(Operator => {
                 operator=Operator.textContent;
                 input.textContent=result+Operator.textContent;
         }
-        if (operatorPressed == false) {
+        if (operatorPressed == false && firstNum) {
             point.disabled=false;
             operator = Operator.textContent;
             input.textContent += Operator.textContent;
             operatorPressed = true;
         }
-    })
+    }
+)
 })
 
 
@@ -122,5 +119,6 @@ clear.addEventListener("click", () => {
     firstNum = "";
     secondNum = "";
     operatorPressed = false;
+    point.disabled=false;
 });
 
